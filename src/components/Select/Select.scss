@@ -1,0 +1,364 @@
+@import "./SelectVariables.scss";
+
+$appPrefix: 'bri';
+
+$componentName: "select";
+$componentClassNamePrefix: $appPrefix + "-" + $componentName;
+$optionIconSize: 16px;
+$spacing: 8px;
+
+.#{$appPrefix}.#{$componentClassNamePrefix} {
+  min-width: 200px;
+  color: map-get($selectColors, "defaultColor");
+  font-style: normal;
+  font-weight: 400;
+  font-size: map-get($selectColors, "selectFontSizes");
+  font-family: var(--main-font-family);
+
+  /* Select full width */
+  &.#{$componentClassNamePrefix}__block {
+    width: 100%;
+  }
+
+  /* Default */
+  .ant-select-selector {
+    width: 100%;
+    background: map-get($selectColors, "defaultBgColor") !important;
+    border-color: map-get($selectColors, "defaultBorderColor") !important;
+    border-radius: $selectBorderRadius !important;
+
+    .ant-select-selection-placeholder {
+      color: map-get($selectColors, "placeholderColor");
+    }
+
+    .ant-select-selection-item {
+      display: flex;
+      align-items: center;
+
+
+
+      .#{$componentClassNamePrefix}__item-icon {
+        width: $optionIconSize;
+        height: $optionIconSize;
+        margin-right: $spacing;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg,
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        & ~ .#{$componentClassNamePrefix}__item-label {
+          width: calc(100% - #{$optionIconSize} - #{$spacing});
+        }
+      }
+
+      .#{$componentClassNamePrefix}__item-label {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  &__dropdown {
+    background: #ffffff;
+    box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.08), 0px 12px 32px rgba(96, 97, 112, 0.24);
+    border-radius: 8px;
+    padding: 8px;
+
+    .#{$componentClassNamePrefix}__item {
+      padding: 6px 16px;
+      margin-bottom: 0px;
+      border-radius: 8px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      background-color: #fff;
+      color: map-get($selectColors, "defaultColor");
+      align-items: center;
+
+      &:last-child {
+        margin-bottom: unset;
+      }
+
+      &:not(.ant-select-item-option-disabled):hover,
+      &.ant-select-item-option-selected {
+        background-color: map-get($selectColors, "optionSelectedBg");
+      }
+
+      .ant-select-item-option-state {
+        width: 16px;
+        height: 16px;
+      }
+
+      .ant-select-item-option-content {
+        padding-right: 8px;
+      }
+
+      &.has-icon {
+        .ant-select-item-option-content {
+          display: flex;
+          align-items: center;
+
+          .#{$componentClassNamePrefix}__item-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg,
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .#{$componentClassNamePrefix}__item-label {
+            width: calc(100% - 16px - 8px);
+            flex: auto;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+  /* End Default */
+
+  /* Focus/Hover */
+  &:not(.ant-select-disabled):not(.ant-select-loading) {
+    &:hover {
+      .ant-select-selector {
+        background: map-get($selectColors, "hoverBgColor") !important;
+        border-color: map-get($selectColors, "hoverBorderColor") !important;
+        box-shadow: map-get($selectColors, "hoverBoxShadow") !important;
+      }
+    }
+  }
+
+  &.ant-select-focused {
+    &:not(.ant-select-disabled):not(.ant-select-loading) {
+      .ant-select-selector {
+        background: map-get($selectColors, "hoverBgColor") !important;
+        border-color: map-get($selectColors, "hoverBorderColor") !important;
+        box-shadow: map-get($selectColors, "hoverBoxShadow") !important;
+      }
+    }
+
+    .ant-select-selector {
+      box-shadow: unset !important;
+    }
+  }
+  /* End Focus/Hover */
+
+  /* Disabled */
+  &.ant-select-disabled {
+    color: map-get($selectColors, "disabledColor");
+
+    .ant-select-selector {
+      color: inherit !important;
+      background: map-get($selectColors, "disabledBgColor") !important;
+      border-color: map-get($selectColors, "disabledBorderColor") !important;
+    }
+
+    &.ant-select-show-arrow {
+      .ant-select-arrow {
+        color: map-get($selectColors, "disabledColor");
+      }
+    }
+  }
+  /* End Disabled */
+
+  /* Arrow Style */
+  &.ant-select-show-arrow {
+    .ant-select-arrow {
+      width: map-get($selectArrowSizes, "default");
+      height: map-get($selectArrowSizes, "default");
+      color: map-get($selectColors, "defaultColor");
+      top: calc((map-get($selectHeight, "middle") - map-get($selectArrowSizes, "default")) / 2);
+      margin-top: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  /* End Arrow Style */
+
+  &.ant-select-show-search {
+    &:not(.ant-select-multiple) {
+      .ant-select-selector {
+        .ant-select-selection-search {
+          left: 12px;
+          padding-right: 12px;
+        }
+      }
+    }
+  }
+
+  /* Sizes */
+  &.ant-select-single {
+    &.ant-select-lg {
+      font-size: map-get($selectFontSizes, "large");
+
+      .ant-select-selector {
+        height: map-get($selectHeight, "large") !important;
+        padding: map-get($selectSinglePadding, "large") !important;
+
+        .ant-select-selection-placeholder {
+          line-height: map-get($selectHeight, "large") !important;
+        }
+      }
+
+      &.ant-select-show-arrow {
+        .ant-select-arrow {
+          width: map-get($selectArrowSizes, "large");
+          height: map-get($selectArrowSizes, "large");
+          top: calc((map-get($selectHeight, "large") - map-get($selectArrowSizes, "large")) / 2);
+        }
+      }
+
+      &.ant-select-show-search {
+        .ant-select-selector {
+          .ant-select-selection-search {
+            .ant-select-selection-search-input {
+              height: map-get($selectHeight, "large");
+            }
+          }
+        }
+      }
+    }
+
+    &.ant-select-xl.ant-select-lg {
+      font-size: map-get($selectFontSizes, "extraLarge");
+
+      .ant-select-selector {
+        height: map-get($selectHeight, "extraLarge") !important;
+        padding: map-get($selectSinglePadding, "extraLarge") !important;
+
+        .ant-select-selection-placeholder {
+          line-height: map-get($selectHeight, "extraLarge") !important;
+        }
+      }
+
+      &.ant-select-show-arrow {
+        .ant-select-arrow {
+          width: map-get($selectArrowSizes, "extraLarge");
+          height: map-get($selectArrowSizes, "extraLarge");
+          top: calc(
+            (map-get($selectHeight, "extraLarge") - map-get($selectArrowSizes, "extraLarge")) / 2
+          );
+        }
+      }
+
+      &.ant-select-show-search {
+        .ant-select-selector {
+          .ant-select-selection-search {
+            .ant-select-selection-search-input {
+              height: map-get($selectHeight, "extraLarge");
+            }
+          }
+        }
+      }
+    }
+  }
+  /* End Sizes */
+
+  /* Loading */
+  &.ant-select-loading {
+    cursor: default;
+    color: map-get($selectColors, "disabledColor");
+
+    .ant-select-selector {
+      color: inherit !important;
+      background: map-get($selectColors, "disabledBgColor") !important;
+      border-color: map-get($selectColors, "disabledBorderColor") !important;
+    }
+
+    &.ant-select-show-arrow {
+      .ant-select-arrow {
+        color: map-get($selectColors, "disabledColor");
+      }
+    }
+
+    .#{$componentClassNamePrefix}__dropdown {
+      display: none;
+    }
+  }
+  /* End Loading */
+
+  &.ant-select-open {
+    &:not(.ant-select-disabled):not(.ant-select-loading) {
+      .ant-select-selector {
+        border-color: map-get($selectColors, "hoverBorderColor") !important;
+      }
+    }
+  }
+
+  &.ant-select-multiple {
+    .ant-select-selector {
+      padding-top: unset;
+      padding-bottom: unset;
+
+      .ant-select-selection-overflow {
+        .ant-select-selection-overflow-item {
+          height: 100%;
+
+          .ant-select-selection-item {
+            margin-top: 3px;
+            margin-bottom: 3px;
+            background: #ffffff;
+            border: 1px solid var(--gray-200);
+            border-radius: 4px;
+
+            .ant-select-selection-item-content {
+              display: flex;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+
+    &.ant-select-lg {
+      font-size: map-get($selectFontSizes, "large");
+
+      .ant-select-selector {
+        .ant-select-selection-overflow {
+          .ant-select-selection-overflow-item {
+            .ant-select-selection-item {
+              margin-top: 2px;
+              margin-bottom: 2px;
+              height: 28px;
+              line-height: 28px;
+            }
+          }
+        }
+      }
+    }
+
+    &.ant-select-xl.ant-select-lg {
+      font-size: map-get($selectFontSizes, "extraLarge");
+
+      .ant-select-selector {
+        .ant-select-selection-overflow {
+          .ant-select-selection-overflow-item {
+            .ant-select-selection-item {
+              margin-top: 3px;
+              margin-bottom: 3px;
+              height: 32px;
+              line-height: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

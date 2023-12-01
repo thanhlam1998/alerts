@@ -1,0 +1,221 @@
+.bri-pagination {
+  .ant-pagination {
+    font-family: var(--main-font-family) !important;
+
+    .ant-select-dropdown {
+      padding: 4px 0 !important;
+    }
+
+    &.mini {
+      .ant-pagination-item {
+        line-height: 24px !important;
+      }
+
+      .ant-pagination-total-text {
+        font-size: 12px;
+        font-weight: 400;
+        margin-right: 8px;
+      }
+    }
+
+    &-total-text {
+      color: var(--gray-800);
+      margin-right: 30px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    &-item {
+      border: 1px solid transparent;
+      border-radius: 4px;
+      line-height: 32px;
+      background: var(--gray-50);
+
+      &:hover {
+        color: var(--blue-500);
+        border: 1px solid;
+        border-radius: 4px;
+        background-color: var(--gray-50);
+        border-color: var(--blue-200);
+      }
+
+      &-link {
+        background: none !important;
+      }
+
+      a {
+        font-family: var(--main-font-family);
+        font-weight: 400;
+        letter-spacing: 0em;
+        color: var(--gray-800);
+      }
+
+      &-active {
+        background: var(--blue-50);
+        border: 1px solid transparent;
+
+        &:hover {
+          background-color: var(--blue-100);
+          border: 1px solid transparent;
+        }
+
+        a {
+          color: var(--blue-500);
+        }
+      }
+    }
+
+    &-jump-next {
+      .anticon {
+        color: var(--blue-500) !important;
+      }
+    }
+
+    &-prev,
+    &-next {
+      .ant-pagination-item-link {
+        border: none;
+        color: var(--gray-800);
+      }
+
+      &:hover {
+        button {
+          color: var(--blue-500) !important;
+        }
+      }
+    }
+
+    &-disabled {
+      button {
+        color: var(--gray-300) !important;
+      }
+
+      button {
+        &:hover {
+          color: var(--gray-300) !important;
+        }
+      }
+    }
+
+    &-options {
+      &-size-changer:not(.ant-select-disabled) {
+        .ant-select-selector {
+          border: 1px solid #d9d9d9 !important;
+          border-radius: 4px;
+          box-shadow: none !important;
+
+          &:not(.ant-select-disabled):hover {
+            border-color: var(--blue-200) !important;
+            box-shadow: 0 0 0 1px var(--blue-200) !important;
+          }
+
+          .ant-select-selection-item {
+            color: var(--gray-800);
+          }
+        }
+
+        .ant-select-arrow {
+          svg {
+            color: var(--gray-800);
+          }
+        }
+      }
+
+      &-quick-jumper {
+        position: relative;
+        input {
+          border: 1px solid #d9d9d9;
+          margin-right: 0 !important;
+
+          &:focus {
+            border-color: var(--blue-200);
+            box-shadow: 0 0 0 1px var(--blue-200);
+          }
+
+          &:hover {
+            border-color: var(--blue-200);
+          }
+        }
+      }
+
+      .ant-select-dropdown {
+        .ant-select-item-option {
+          &-active,
+          &-selected:not(.ant-select-item-option-disabled) {
+            background-color: var(--blue-50);
+            color: var(--blue-500);
+          }
+        }
+      }
+    }
+
+    &-jump-prev,
+    &-jump-prev {
+      .ant-pagination-item-link-icon {
+        color: var(--blue-500) !important;
+      }
+
+      .ant-pagination-item-link {
+        color: var(--blue-500) !important;
+      }
+    }
+
+    &-disabled {
+      .ant-pagination-item-link {
+        &:hover {
+          color: var(--gray-300);
+        }
+      }
+
+      .ant-pagination-options {
+        .ant-select-selector {
+          background-color: var(--gray-100);
+          border-radius: 4px;
+        }
+
+        .ant-select-arrow {
+          color: var(--gray-400) !important;
+        }
+
+        .ant-select-selection-item {
+          color: var(--gray-400) !important;
+        }
+      }
+
+      .ant-pagination-item {
+        &-active {
+          background: var(--gray-100) !important;
+          border: var(--gray-100);
+        }
+
+        a {
+          color: var(--gray-300) !important;
+        }
+      }
+
+      .ant-pagination-options-quick-jumper {
+        color: var(--gray-400);
+
+        input {
+          background: #f5f5f5;
+          border-radius: 2px;
+        }
+      }
+
+      .ant-pagination-next,
+      .ant-pagination-prev {
+        &:hover {
+          button {
+            color: var(--gray-300) !important;
+          }
+        }
+      }
+    }
+
+    &-disabled:not(.ant-pagination-mini) {
+      .ant-pagination-item {
+        background: var(--gray-50) !important;
+      }
+    }
+  }
+}

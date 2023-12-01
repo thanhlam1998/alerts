@@ -1,0 +1,21 @@
+.page-wrapper {
+  &__breadcrumb {
+    li {
+      a,
+      a:hover {
+        color: var(--gray-400);
+        font-size: 14px;
+        font-family: var(--sm-main-font-family);
+        line-height: 20px;
+        background-color: unset;
+      }
+
+      &:last-child {
+        a {
+          font-weight: 600;
+          color: var(--gray-800);
+        }
+      }
+    }
+  }
+}

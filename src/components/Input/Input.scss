@@ -1,0 +1,289 @@
+/* Common */
+$inputPrimaryFont: "Nunito Sans";
+$inputFontSize: 14px;
+$inputFontWeight: 400;
+$inputLineHeight: 20px;
+$inputBorderRadius: 4px;
+/* End Common */
+
+/* Color */
+$inputTextColor: var(--gray-800);
+$inputPlaceholderColor: var(--gray-400);
+
+$inputBgColor: var(--gray-50);
+$inputBorderColor: var(--gray-200);
+/* End Color */
+
+/* Padding */
+$inputPadding: 6px 12px;
+$inputLargePadding: 8px 12px;
+$inputSmallPadding: 2px 8px;
+
+/* Height */
+$inputMiddleHeight: 32px;
+$inputLargeHeight: 36px;
+$inputSmallHeight: 24px;
+/* End Height */
+
+/* Focus */
+$inputFocusBgColor: var(--gray-50);
+$inputFocusBorderColor: var(--blue-500);
+$inputFocusBoxShadow: 0px 0px 0px 2px rgba(96, 133, 255, 0.3);
+/* End Focus */
+
+/* Disabled */
+$inputDisabledBgColor: var(--gray-50);
+$inputDisabledBorderColor: var(--gray-200);
+$inputDisabledColor: var(--gray-400);
+/* End Disabled */
+
+$inputAffixIconSize: 16px;
+$inputAffixIconSmallSize: 14px;
+
+.bri-input {
+  input,
+  textarea {
+    color: $inputTextColor;
+    font-style: normal;
+    font-weight: $inputFontWeight;
+    font-size: $inputFontSize;
+    line-height: $inputLineHeight;
+    font-family: $inputPrimaryFont;
+
+    &::placeholder {
+      color: $inputPlaceholderColor;
+      font-style: normal;
+      font-weight: $inputFontWeight;
+      font-size: $inputFontSize;
+      line-height: $inputLineHeight;
+      font-family: $inputPrimaryFont;
+    }
+  }
+
+  & > .ant-input,
+  .ant-input-affix-wrapper {
+    background-color: $inputBgColor;
+    border-color: $inputBorderColor;
+    border-radius: $inputBorderRadius;
+    padding: $inputPadding;
+    height: $inputMiddleHeight;
+
+    /* Sizes */
+    &.ant-input-lg,
+    &.ant-input-affix-wrapper-lg {
+      height: $inputLargeHeight;
+      padding: $inputLargePadding;
+    }
+
+    &.ant-input-sm,
+    &.ant-input-affix-wrapper-sm {
+      height: $inputSmallHeight;
+      padding: $inputSmallPadding;
+    }
+
+    &.ant-input-affix-wrapper-sm {
+      .ant-input-prefix,
+      .ant-input-suffix {
+        width: $inputAffixIconSmallSize;
+        height: $inputAffixIconSmallSize;
+      }
+    }
+    /* End Sizes */
+  }
+
+  /*Custom for a type*/
+  /* Normal input */
+  & > .ant-input {
+    &:not(.ant-input-disabled) {
+      &:hover,
+      &:focus {
+        background-color: $inputFocusBgColor;
+        border-color: $inputFocusBorderColor;
+        box-shadow: $inputFocusBoxShadow;
+      }
+    }
+
+    /* Disabled */
+    &.ant-input-disabled {
+      background-color: $inputDisabledBgColor;
+      border-color: $inputDisabledBorderColor;
+      color: $inputDisabledColor;
+    }
+    /* End Disabled */
+  }
+
+  /*Input with prefix/suffix*/
+  .ant-input-affix-wrapper {
+    align-items: center;
+
+    &::before {
+      display: none;
+    }
+
+    &:not(.ant-input-affix-wrapper-disabled) {
+      &:hover,
+      &.ant-input-affix-wrapper-focused {
+        background-color: $inputFocusBgColor;
+        border-color: $inputFocusBorderColor;
+        box-shadow: $inputFocusBoxShadow;
+      }
+    }
+
+    .ant-input-prefix,
+    .ant-input-suffix {
+      width: $inputAffixIconSize;
+      height: $inputAffixIconSize;
+      color: var(--gray-500);
+
+      svg {
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+
+        path {
+          fill: currentColor;
+        }
+      }
+    }
+
+    .ant-input {
+      background-color: $inputBgColor;
+    }
+  }
+
+  /* Input with addon */
+  .ant-input-group-wrapper {
+    .ant-input-wrapper {
+      height: $inputMiddleHeight;
+      display: flex;
+
+      .ant-input-group-addon {
+        padding: $inputPadding;
+        color: $inputTextColor;
+        font-style: normal;
+        font-weight: $inputFontWeight;
+        font-size: $inputFontSize;
+        line-height: $inputLineHeight;
+        font-family: $inputPrimaryFont;
+        background-color: $inputBgColor;
+        border-color: $inputBorderColor;
+        width: fit-content;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ant-input {
+        height: 100%;
+        padding: $inputPadding;
+        background-color: $inputBgColor;
+        border-color: $inputBorderColor;
+        flex-grow: 1;
+      }
+    }
+
+    &.addon-before {
+      .ant-input-group-addon {
+        border-top-left-radius: $inputBorderRadius;
+        border-bottom-left-radius: $inputBorderRadius;
+      }
+
+      .ant-input {
+        border-top-right-radius: $inputBorderRadius;
+        border-bottom-right-radius: $inputBorderRadius;
+      }
+    }
+
+    &.addon-after {
+      .ant-input-group-addon {
+        border-top-right-radius: $inputBorderRadius;
+        border-bottom-right-radius: $inputBorderRadius;
+      }
+
+      .ant-input {
+        border-top-left-radius: $inputBorderRadius;
+        border-bottom-left-radius: $inputBorderRadius;
+      }
+    }
+
+    &.addons-on-both {
+      .ant-input-group-addon {
+        &:first-child {
+          border-top-left-radius: $inputBorderRadius;
+          border-bottom-left-radius: $inputBorderRadius;
+        }
+
+        &:last-child {
+          border-top-right-radius: $inputBorderRadius;
+          border-bottom-right-radius: $inputBorderRadius;
+        }
+      }
+    }
+
+    &:not(.ant-input-group-wrapper-disabled) {
+      .ant-input-wrapper {
+        .ant-input {
+          &:hover,
+          &:focus {
+            background-color: $inputFocusBgColor;
+            border-color: $inputFocusBorderColor;
+            box-shadow: $inputFocusBoxShadow;
+          }
+        }
+      }
+    }
+
+    &.ant-input-group-wrapper-disabled {
+      .ant-input-wrapper {
+        .ant-input-group-addon {
+          color: $inputDisabledColor;
+        }
+      }
+    }
+
+    &.ant-input-group-wrapper-lg {
+      .ant-input-wrapper {
+        height: $inputLargeHeight;
+
+        .ant-input-group-addon,
+        .ant-input {
+          height: 100%;
+          padding: $inputLargePadding;
+        }
+      }
+    }
+
+    &.ant-input-group-wrapper-sm {
+      .ant-input-wrapper {
+        height: $inputSmallHeight;
+
+        .ant-input-group-addon,
+        .ant-input {
+          height: 100%;
+          padding: $inputSmallPadding;
+        }
+      }
+    }
+  }
+
+  .addon-fix {
+    .ant-input-wrapper {
+      .ant-input-affix-wrapper {
+        .ant-input-prefix {
+          width: 14px;
+          height: 14px;
+        }
+
+        .ant-input {
+          &:hover,
+          &:focus {
+            box-shadow: unset;
+            border-color: unset;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}

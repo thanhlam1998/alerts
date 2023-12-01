@@ -1,0 +1,36 @@
+.participants-view {
+  position: relative;
+  height: calc(100% - 32px - 14px);
+
+  &__search-view {
+    height: calc(100% - 32px); // - 40px
+
+    &-list {
+      height: 100%;
+      overflow-y: scroll;
+    }
+
+    &-footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40px
+      ;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      padding-top: 8px;
+    }
+  }
+
+  &__list-view {
+    height: calc(100% - 32px - 16px);
+
+    &-list {
+      height: 100%;
+      overflow-y: scroll;
+    }
+
+  }
+}

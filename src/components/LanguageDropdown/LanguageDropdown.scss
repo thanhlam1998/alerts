@@ -1,0 +1,27 @@
+.language-dropdown-wrapper {
+  .ant-dropdown-open {
+    border-color: var(--blue-200) !important;
+    border-width: 1px !important;
+    background-color: #ffffff;
+  }
+}
+
+.sm-language-dropdown {
+  .ant-dropdown-menu {
+    padding: 4px !important;
+    > svg {
+      position: relative;
+      top: 5px;
+    }
+    .ant-dropdown-menu-item {
+      &:hover {
+        background-color: var(--blue-50) !important;
+        border-radius: 8px;
+      }
+      .ant-dropdown-menu-item-active {
+        background-color: var(--blue-50) !important;
+        border-radius: 8px;
+      }
+    }
+  }
+}

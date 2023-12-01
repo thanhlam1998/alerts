@@ -1,0 +1,20 @@
+.graphs-page-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 24px - 16px - 32px);
+
+  .graphs-container {
+    background: #ffffff;
+    box-shadow: 0px 2px 4px rgb(40 41 61 / 4%),
+      0px 4px 16px rgb(96 97 112 / 16%);
+    border-radius: 12px;
+    margin-top: 16px;
+    width: 100%;
+    flex-grow: 1;
+
+    .g6-component-toolbar {
+      left: 16px;
+      bottom: 16px;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "nodeEnv": "stage",
+  "apiUrl": "https://bri-api-stage.finance.pascal.studio",
+  "cryptoAesKey": "58re97235srasdf24sdfaa2fe03ec434c0a911182",
+  "webSocketUrl": "ws://bri-api-stage.finance.pascal.studio",
+  "wsPort": "9001"
+}

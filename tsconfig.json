@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "allowJs": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": ["dom", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2018",
+    "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true
+  },
+  "compileOnSave": false,
+  "exclude": ["node_modules", "src/translations/*"],
+  "include": ["**/*.ts", "**/*.tsx", "../typings/**/*", "custom.d.ts"]
+}

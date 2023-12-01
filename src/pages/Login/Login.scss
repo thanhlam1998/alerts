@@ -1,0 +1,19 @@
+.login-page {
+  &__form {
+    &-item {
+      margin-bottom: 16px;
+
+      .ant-form-item-label {
+        margin-bottom: 4px;
+        padding-bottom: unset;
+
+        label {
+          color: var(--gray-800);
+          font-size: 14px;
+          font-family: var(--sm-main-font-family);
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}

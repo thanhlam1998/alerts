@@ -1,0 +1,121 @@
+/* Customize the label (the ) */
+.checkbox-button-container {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin: 5px 5px 5px 0px;
+
+	&-base {
+		width: 24px;
+		height: 24px;
+		min-width: 24px;
+	}
+
+	&-sm {
+		top: 2px;
+		width: 16px;
+		height: 16px;
+		min-width: 16px;
+	}
+
+	/* Hide the browser's default checkbox */
+	input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	}
+
+	/* Create a custom checkbox */
+	.checkmark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		border: 1px solid var(--checkBoxBorderColor);
+		box-sizing: border-box;
+		border-radius: 4px;
+		background-color: var(--checkBoxBackgroundColor);
+	}
+
+	/* On mouse-over, add a grey background color */
+	&:hover input~.checkmark {
+		background-color: var(--checkboxBackgroundColor);
+	}
+
+	/* When the checkbox is checked, add a blue background */
+	input:checked~.checkmark {
+		background-color: var(--blue-500);
+		border-color: var(--blue-500) !important;
+	}
+
+	.disabled {
+		cursor: not-allowed;
+	}
+
+	input.disabled~.checkmark {
+		background-color: var(--checkBoxDisabledBackgroundColor);
+		border-color: var(--checkBoxDisabledBorderColor) !important;
+	}
+
+	/* Create the checkmark/indicator (hidden when not checked) */
+	.checkmark:after {
+		content: '';
+		position: absolute;
+		display: none;
+	}
+
+	/* Show the checkmark when checked */
+	input:checked~.checkmark:after {
+		display: block;
+	}
+
+	/* Style the checkmark/indicator */
+	.checkmark:after {
+		left: 50%;
+		top: 44%;
+		width: 5px;
+		height: 10px;
+		border: solid var(--checkBoxCheckedBorderColor);
+		border-width: 0 2px 2px 0;
+		-webkit-transform: translate(-50%, -50%) rotate(45deg);
+		-ms-transform: translate(-50%, -50%) rotate(45deg);
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+}
+
+.checkbox-control {
+	.hidden {
+		display: none;
+	}
+
+	.checkbox-control__label {
+		&-sm {
+			@apply sm_body_b2_reg text-gray800 !text-sm
+		}
+
+		&-base {
+			@apply sm_body_b3_reg text-gray800 !text-base
+		}
+
+		margin-left: 8px;
+		display: flex;
+		align-items: flex-start;
+	}
+}
+
+.checkbox {
+	display: flex;
+	align-items: center;
+
+	&-button-container {
+		margin: unset;
+	}
+}

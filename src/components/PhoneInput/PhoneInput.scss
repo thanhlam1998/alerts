@@ -1,0 +1,31 @@
+.bri-phone-input-container {
+    &__focus,
+    &:hover {
+        .flag-dropdown,
+        .form-control {
+            border: 1px solid #8aa9ff;
+        }
+    }
+    ::placeholder{
+        font-size: 14px;
+        color:rgba(128, 128, 128, 0.28)
+    }
+    .form-control {
+        @apply sm_body_b2_reg;
+
+        &:focus,
+        &:hover {
+            box-shadow: none;
+            border: 1px solid #8aa9ff;
+        }
+    }
+
+}
+
+.ant-form-item-has-error {
+
+    .flag-dropdown,
+    .form-control {
+        border: 1px solid #ff4d4f !important;
+    }
+}

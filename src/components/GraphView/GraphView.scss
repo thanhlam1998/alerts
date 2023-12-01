@@ -1,0 +1,61 @@
+.graph-view {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  .legend {
+    position: absolute;
+    z-index: 2;
+    top: 8px;
+    left: 8px;
+
+    .start-arrow,
+    .end-arrow {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    min-height: 484px;
+
+    & > {
+      canvas,
+      svg {
+        background: #fafafd;
+      }
+
+      /*TODO: update logic to not render 2 times*/
+      svg:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  .spin-loading-wrapper {
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .g6-component-toolbar {
+    left: 16px;
+    bottom: 16px;
+    padding: 8px;
+    border-radius: 12px;
+    background: #f2f3f4;
+  }
+}

@@ -1,0 +1,39 @@
+$selectHeight: (
+  "middle": 32px,
+  "large": 36px,
+  "extraLarge": 40px,
+);
+
+$selectArrowSizes: (
+  "default": 16px,
+  "large": 16px,
+  "extraLarge": 16px,
+);
+
+$selectSinglePadding: (
+  "middle": 0px 12px,
+  "large": 0px 12px,
+  "extraLarge": 0px 12px,
+);
+
+$selectColors: (
+  "placeholderColor": var(--gray-400),
+  "defaultColor": var(--gray-800),
+  "defaultBgColor": var(--gray-50),
+  "defaultBorderColor": var(--gray-200),
+  "hoverBgColor": var(--gray-50),
+  "hoverBorderColor": var(--blue-500),
+  "hoverBoxShadow": 0px 0px 0px 2px rgba(96, 133, 255, 0.3),
+  "disabledColor": var(--gray-400),
+  "disabledBgColor": var(--gray-50),
+  "disabledBorderColor": var(--gray-200),
+  "optionSelectedBg": var(--blue-50),
+);
+
+$selectFontSizes: (
+  "default": 14px,
+  "large": 14px,
+  "extraLarge": 16px,
+);
+
+$selectBorderRadius: 4px;

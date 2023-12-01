@@ -1,0 +1,26 @@
+.colum-info {
+    .colum-info-label {
+        @apply text-gray500 mb-1;
+
+        &-xs {
+            @apply text-xs leading-3
+        }
+
+        &-sm {
+            @apply text-sm leading-4
+        }
+    }
+
+    .colum-info-value {
+        @apply font-semibold;
+        
+        &-xs {
+            @apply text-sm leading-4 min-h-[14px]
+        }
+
+        &-sm {
+            @apply text-base leading-5 min-h-[16px]
+        }
+    }
+
+}

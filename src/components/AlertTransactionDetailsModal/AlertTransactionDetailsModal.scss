@@ -1,0 +1,11 @@
+.alert-transaction-details-modal {
+  .ant-modal-header {
+    padding-bottom: 12px;
+  }
+
+  .ant-modal-body {
+    .bri-modal__body {
+      @apply mb-6;
+    }
+  }
+}

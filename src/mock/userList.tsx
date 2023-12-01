@@ -1,0 +1,51 @@
+// Sample to mock data
+export default [
+  {
+    img: "",
+    firstName: "John",
+    lastName: "Brown",
+    email: "tmminhhieu.dn@gmail.com",
+    role: "Admin",
+    permission: true,
+  },
+  {
+    img: "",
+    firstName: "John",
+    lastName: "Brown",
+    email: "tmminhhieu.dn@gmail.com",
+    role: "Admin",
+    permission: true,
+  },
+  {
+    img: "",
+    firstName: "John",
+    lastName: "Brown",
+    email: "tmminhhieu.dn@gmail.com",
+    role: "Admin",
+    permission: true,
+  },
+  {
+    img: "",
+    firstName: "John",
+    lastName: "Brown",
+    email: "tmminhhieu.dn@gmail.com",
+    role: "Admin",
+    permission: true,
+  },
+  {
+    img: "",
+    firstName: "John",
+    lastName: "Brown",
+    email: "tmminhhieu.dn@gmail.com",
+    role: "Admin",
+    permission: true,
+  },
+  {
+    img: null,
+    firstName: "John",
+    lastName: "Brown",
+    email: "tmminhhieu.dn@gmail.com",
+    role: "Admin",
+    permission: false,
+  },
+];

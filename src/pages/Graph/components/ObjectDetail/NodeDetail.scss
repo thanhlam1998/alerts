@@ -1,0 +1,18 @@
+.object-detail {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    z-index: 1;
+    &__wrapper {
+        height: 100%;
+    }
+
+    &__content{
+        height: calc(100% - 82px);
+        @apply pt-4 overflow-y-scroll flex-1
+    }
+
+    .info-row  {
+        padding-bottom: 16px;
+    }
+}

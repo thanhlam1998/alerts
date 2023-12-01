@@ -1,0 +1,159 @@
+@import "../ButtonVariables.scss";
+
+.bri-source-button {
+  border-radius: 8px;
+  padding: unset;
+
+  &__wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius: 7px;
+    overflow: hidden;
+  }
+
+  &__left,
+  &__left-icon,
+  &__right {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__left {
+    &-content {
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        font-family: $buttonFontFamily;
+        font-style: normal;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__right {
+    margin-left: 8px;
+  }
+
+  /* Types */
+  &.bri-source-button-type-default {
+    background: $sourceButtonDefaultBg;
+    border-color: $sourceButtonDefaultBorderColor;
+    color: $sourceButtonDefaultColor;
+
+    &:not(:disabled) {
+      &.allow-hover {
+        &:hover,
+        &:focus {
+          background: $sourceButtonDefaultHoverBg;
+          border-color: $sourceButtonDefaultHoverBorderColor;
+          color: $sourceButtonDefaultHoverColor;
+        }
+      }
+    }
+
+    &:disabled {
+      background: $sourceButtonDefaultDisabledBg;
+      border-color: $sourceButtonDefaultDisabledBorderColor;
+      color: $sourceButtonDefaultDisabledColor;
+    }
+  }
+
+  &.bri-source-button-type-outline {
+    background: $sourceButtonOutlineBg;
+    border-color: $sourceButtonOutlineBorderColor;
+    color: $sourceButtonOutlineColor;
+
+    &:not(:disabled) {
+      &.allow-hover {
+        &:hover,
+        &:focus {
+          background: $sourceButtonOutlineHoverBg;
+          border-color: $sourceButtonOutlineHoverBorderColor;
+          color: $sourceButtonOutlineHoverColor;
+
+          .bri-source-button__wrapper {
+            border-color: $sourceButtonOutlineHoverBorderColor;
+          }
+        }
+      }
+    }
+
+    &:disabled {
+      background: $sourceButtonOutlineDisabledBg;
+      border-color: $sourceButtonOutlineDisabledBorderColor;
+      color: $sourceButtonOutlineDisabledColor;
+    }
+  }
+  /* End types */
+
+  /* Sizes */
+  &.bri-source-button-size-default {
+    height: 52px;
+
+    .bri-source-button {
+      &__left {
+        &-icon {
+          margin-right: 8px;
+        }
+
+        &-content {
+          .title {
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  &.bri-source-button-size-large {
+    height: 64px;
+
+    .bri-source-button {
+      &__left {
+        &-icon {
+          margin-right: 16px;
+        }
+
+        &-content {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+  /* End sizes */
+
+  &.not-allow-hover {
+    cursor: default;
+  }
+
+  &.has-sub-title {
+    .bri-source-button {
+      &__left {
+        &-content {
+          align-items: flex-start;
+
+          .title {
+            font-size: 16px;
+            line-height: 24px;
+          }
+
+          .sub-title {
+            font-size: 10px;
+            line-height: 12px;
+            margin-top: 2px;
+          }
+        }
+      }
+    }
+  }
+}

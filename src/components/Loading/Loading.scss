@@ -1,0 +1,36 @@
+.bri-loading {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  z-index: 9999;
+  padding: 20px;
+  &-icon {
+    display: flex;
+  }
+  &__full{
+    position: fixed;
+    background: #f2f2f2;
+  }
+}
+.loading-spin {
+  -webkit-animation: rotating 0.8s linear infinite;
+  animation: rotating 0.8s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}

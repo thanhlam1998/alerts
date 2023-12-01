@@ -1,0 +1,13 @@
+.edit-case-modal {
+  &__form-item {
+    .ant-row {
+      display: block;
+
+      .ant-form-item-label {
+        label {
+          height: unset;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.wrapper-section {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+
+  &-border {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid var(--blue-100);
+    box-sizing: border-box;
+    border-radius: 16px;
+    padding: 16px;
+    height: 100%;
+  }
+
+  &-shadow {
+    background: #ffffff;
+    box-shadow: 0px 4px 16px 0px rgba(96, 97, 112, 0.16),
+      0px 2px 4px 0px rgba(40, 41, 61, 0.04);
+    border-radius: 12px;
+    width: 100%;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+}

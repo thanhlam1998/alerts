@@ -1,0 +1,43 @@
+image: lambci/lambda:build-nodejs12.x
+pipelines:
+  branches:
+    develop:
+      - step:
+          deployment: test
+          script:
+            - pipe: atlassian/ssh-run:0.1.1
+              variables:
+                SSH_USER: "ubuntu" # or whatever the username is
+                SERVER: "ec2-13-228-15-51.ap-southeast-1.compute.amazonaws.com" # your server host
+                MODE: script
+                COMMAND: "deploy-dev.sh"
+                DEBUG: "true"
+          caches:
+            - node
+    stage:
+      - step:
+          deployment: staging
+          script:
+            - pipe: atlassian/ssh-run:0.1.1
+              variables:
+                SSH_USER: "ubuntu" # or whatever the username is
+                SERVER: "ec2-13-228-15-51.ap-southeast-1.compute.amazonaws.com" # your server host
+                MODE: script
+                COMMAND: "deploy-stage.sh"
+                DEBUG: "true"
+          caches:
+            - node
+
+    master:
+      - step:
+          deployment: production
+          script:
+            - pipe: atlassian/ssh-run:0.1.1
+              variables:
+                SSH_USER: "ubuntu" # or whatever the username is
+                SERVER: "ec2-13-228-15-51.ap-southeast-1.compute.amazonaws.com" # your server host
+                MODE: script
+                COMMAND: "deploy-prod.sh"
+                DEBUG: "true"
+          caches:
+            - node

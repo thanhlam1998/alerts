@@ -1,0 +1,101 @@
+.sm-date-picker-container {
+  .rotate-180-deg {
+    transform: rotate(180deg);
+  }
+  .sm-date-picker-popup {
+    background: #ffffff;
+    box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.04), 0px 6px 24px rgba(96, 97, 112, 0.16);
+    border-radius: 12px;
+    box-sizing: border-box;
+    top: 35px;
+    right: 0;
+  }
+  .sm-date-picker {
+    &-header {
+    }
+    &-body {
+      &::-webkit-scrollbar {
+        width: 8px;
+        border-radius: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        background: #fff;
+        border-radius: 8px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #6b72804d;
+        border-radius: 8px;
+      }
+      .time-item {
+        padding: 8px 6px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        border-radius: 8px;
+        &.time-active:not(.disabled),
+        &:not(.disabled):hover {
+          background: #6085ff;
+          color: #fff;
+        }
+        &.disabled {
+          color: #d1d5db;
+        }
+      }
+    }
+    &-footer {
+    }
+  }
+
+  /* CUSTOM UI */
+  .sm-date-picker-popup {
+    .ant-tabs-nav {
+      margin-bottom: 18px;
+      transition: none !important;
+    }
+    .ant-tabs-nav-list,
+    .ant-tabs-nav-wrap {
+      transition: none !important;
+      width: 100%;
+    }
+    .ant-tabs-nav-wrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 2px;
+      height: 32px;
+      background: #f2f3f4;
+      border-radius: 8px;
+      .ant-tabs-ink-bar,
+      .ant-tabs-nav-operations {
+        display: none;
+      }
+      .ant-tabs-tab {
+        margin: 0;
+        padding: 4px 7px;
+        color: #9ca3af;
+        border: 1px solid #f2f3f4;
+        border-radius: 8px;
+        font-family: "Nunito Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        transition: none !important;
+        flex:1;
+        display: flex;
+        justify-content: center;
+        &-active,
+        &:hover {
+          transition: none !important;
+          background: #fff;
+          border: 1px solid #e5e7eb;
+          box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08), 0px 0.5px 2px rgba(96, 97, 112, 0.16);
+          .ant-tabs-tab-btn {
+            color: #1f2937;
+          }
+        }
+      }
+    }
+  }
+}

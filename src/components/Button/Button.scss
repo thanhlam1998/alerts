@@ -1,0 +1,422 @@
+@import "./ButtonVariables.scss";
+
+.bri-button {
+  height: $buttonDefaultSize;
+  padding: auto $buttonPadding;
+  border-radius: $buttonDefaultRadius !important;
+  text-shadow: unset;
+  box-shadow: unset;
+  font-family: $buttonFontFamily;
+  font-style: normal;
+  font-weight: $buttonFontWeight !important;
+  font-size: $buttonFontSize;
+  line-height: $buttonLineHeight;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Button theme & types */
+  &.bri-button-theme-standard {
+    &.ant-btn-primary {
+      background: $buttonPrimaryBg;
+      border-color: $buttonPrimaryBorderColor;
+      color: $buttonPrimaryTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonPrimaryHoverBg;
+          border-color: $buttonPrimaryHoverBorderColor;
+          color: $buttonPrimaryHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonPrimaryDisabledBg;
+        border-color: $buttonPrimaryDisabledBorderColor;
+        color: $buttonPrimaryDisabledTextColor;
+      }
+    }
+
+    &.ant-btn-default {
+      background: $buttonDefaultBg;
+      border-color: $buttonDefaultBorderColor;
+      color: $buttonDefaultTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonDefaultHoverBg;
+          border-color: $buttonDefaultHoverBorderColor;
+          color: $buttonDefaultHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonDefaultDisabledBg;
+        border-color: $buttonDefaultDisabledBorderColor;
+        color: $buttonDefaultDisabledTextColor;
+      }
+    }
+
+    &.ant-btn-dashed {
+      background: $buttonDashedBg;
+      border-color: $buttonDashedBorderColor;
+      color: $buttonDashedTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonDashedHoverBg;
+          border-color: $buttonDashedHoverBorderColor;
+          color: $buttonDashedHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonDashedDisableBg;
+        border-color: $buttonDashedDisableBorderColor;
+        color: $buttonDashedDisableTextColor;
+      }
+    }
+
+    &.ant-btn-text {
+      background: $buttonTextBg;
+      border-color: $buttonTextBorderColor;
+      color: $buttonTextTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonTextHoverBg;
+          border-color: $buttonTextHoverBorderColor;
+          color: $buttonTextHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonTextDisabledBg;
+        border-color: $buttonTextDisabledBorderColor;
+        color: $buttonTextDisabledTextColor;
+      }
+    }
+
+    &.ant-btn-link {
+      background: $buttonLinkBg;
+      border-color: $buttonLinkBorderColor;
+      color: $buttonLinkTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonLinkHoverBg;
+          border-color: $buttonLinkHoverBorderColor;
+          color: $buttonLinkHoverTextColor;
+          text-decoration: underline;
+        }
+      }
+
+      &:disabled {
+        background: $buttonLinkDisabledBg;
+        border-color: $buttonLinkDisabledBorderColor;
+        color: $buttonLinkDisabledTextColor;
+      }
+    }
+  }
+
+  /* Red button */
+  &.bri-button-theme-red {
+    &.ant-btn-primary {
+      background: $buttonRedPrimaryBg;
+      border-color: $buttonRedPrimaryBorderColor;
+      color: $buttonRedPrimaryTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonRedPrimaryHoverBg;
+          border-color: $buttonRedPrimaryHoverBorderColor;
+          color: $buttonRedPrimaryHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonRedPrimaryDisabledBg;
+        border-color: $buttonRedPrimaryDisabledBorderColor;
+        color: $buttonRedPrimaryDisabledTextColor;
+      }
+    }
+
+    &.ant-btn-default {
+      background: $buttonRedDefaultBg;
+      border-color: $buttonRedDefaultBorderColor;
+      color: $buttonRedDefaultTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonRedDefaultHoverBg;
+          border-color: $buttonRedDefaultHoverBorderColor;
+          color: $buttonRedDefaultHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonRedDefaultDisabledBg;
+        border-color: $buttonRedDefaultDisabledBorderColor;
+        color: $buttonRedDefaultDisabledTextColor;
+      }
+    }
+
+    &.ant-btn-dashed {
+      background: $buttonRedDashedBg;
+      border-color: $buttonRedDashedBorderColor;
+      color: $buttonRedDashedTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonRedDashedHoverBg;
+          border-color: $buttonRedDashedHoverBorderColor;
+          color: $buttonRedDashedHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonRedDashedDisableBg;
+        border-color: $buttonRedDashedDisableBorderColor;
+        color: $buttonRedDashedDisableBorderColor;
+      }
+    }
+
+    &.ant-btn-text {
+      background: $buttonRedTextBg;
+      border-color: $buttonRedTextBorderColor;
+      color: $buttonRedTextTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonRedTextHoverBg;
+          border-color: $buttonRedTextHoverBorderColor;
+          color: $buttonRedTextHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonRedTextDisabledBg;
+        border-color: $buttonRedTextDisabledBorderColor;
+        color: $buttonRedTextDisabledTextColor;
+      }
+    }
+
+    &.ant-btn-link {
+      background: $buttonRedLinkBg;
+      border-color: $buttonRedLinkBorderColor;
+      color: $buttonRedLinkTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonRedLinkHoverBg;
+          border-color: $buttonRedLinkHoverBorderColor;
+          color: $buttonRedLinkHoverTextColor;
+          text-decoration: underline;
+        }
+      }
+
+      &:disabled {
+        background: $buttonRedLinkDisabledBg;
+        border-color: $buttonRedLinkDisabledBorderColor;
+        color: $buttonRedLinkDisabledTextColor;
+      }
+    }
+  }
+
+  /* Green button */
+  &.bri-button-theme-green {
+    &.ant-btn-primary {
+      background: $buttonGreenPrimaryBg;
+      border-color: $buttonGreenPrimaryBorderColor;
+      color: $buttonGreenPrimaryTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonGreenPrimaryHoverBg;
+          border-color: $buttonGreenPrimaryHoverBorderColor;
+          color: $buttonGreenPrimaryHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonGreenPrimaryDisabledBg;
+        border-color: $buttonGreenPrimaryDisabledBorderColor;
+        color: $buttonGreenPrimaryDisabledTextColor;
+      }
+    }
+
+    &.ant-btn-default {
+      background: $buttonGreenDefaultBg;
+      border-color: $buttonGreenDefaultBorderColor;
+      color: $buttonGreenDefaultTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonGreenDefaultHoverBg;
+          border-color: $buttonGreenDefaultHoverBorderColor;
+          color: $buttonGreenDefaultHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonGreenDefaultDisabledBg;
+        border-color: $buttonGreenDefaultDisabledBorderColor;
+        color: $buttonGreenDefaultDisabledTextColor;
+      }
+    }
+
+    &.ant-btn-dashed {
+      background: $buttonGreenDashedBg;
+      border-color: $buttonGreenDashedBorderColor;
+      color: $buttonGreenDashedTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonGreenDashedHoverBg;
+          border-color: $buttonGreenDashedHoverBorderColor;
+          color: $buttonGreenDashedHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonGreenDashedDisableBg;
+        border-color: $buttonGreenDashedDisableBorderColor;
+        color: $buttonGreenDashedDisableBorderColor;
+      }
+    }
+
+    &.ant-btn-text {
+      background: $buttonGreenTextBg;
+      border-color: $buttonGreenTextBorderColor;
+      color: $buttonGreenTextTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonGreenTextHoverBg;
+          border-color: $buttonGreenTextHoverBorderColor;
+          color: $buttonGreenTextHoverTextColor;
+        }
+      }
+
+      &:disabled {
+        background: $buttonGreenTextDisabledBg;
+        border-color: $buttonGreenTextDisabledBorderColor;
+        color: $buttonGreenTextDisabledTextColor;
+      }
+    }
+
+    &.ant-btn-link {
+      background: $buttonGreenLinkBg;
+      border-color: $buttonGreenLinkBorderColor;
+      color: $buttonGreenLinkTextColor;
+
+      &:not(:disabled) {
+        &:hover,
+        &:focus {
+          background: $buttonGreenLinkHoverBg;
+          border-color: $buttonGreenLinkHoverBorderColor;
+          color: $buttonGreenLinkHoverTextColor;
+          text-decoration: underline;
+        }
+      }
+
+      &:disabled {
+        background: $buttonGreenLinkDisabledBg;
+        border-color: $buttonGreenLinkDisabledBorderColor;
+        color: $buttonGreenLinkDisabledTextColor;
+      }
+    }
+  }
+  /* End button colors & types */
+
+  /* Button sizes */
+  &.ant-btn-xl {
+    height: $buttonExtraLargeSize !important;
+    border-radius: $buttonExtraLargeRadius !important;
+    font-size: $buttonLargeFontSize;
+    line-height: $buttonLargeLineHeight;
+  }
+
+  &.ant-btn-lg {
+    height: $buttonLargeSize;
+    border-radius: $buttonLargeRadius !important;
+    font-size: $buttonLargeFontSize;
+    line-height: $buttonLargeLineHeight;
+  }
+
+  &.ant-btn-sm {
+    height: $buttonSmallSize;
+    border-radius: $buttonSmallRadius !important;
+    font-size: $buttonSmallFontSize;
+    line-height: $buttonSmallLineHeight;
+    font-weight: $buttonSmallFontWeight !important;
+    padding: 4px $buttonSmallPadding;
+  }
+  /* End button sizes */
+
+  /* Shape square */
+  &.ant-btn-square {
+    width: $buttonDefaultSize;
+    padding: 10px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    &.ant-btn-lg {
+      width: $buttonLargeSize;
+      padding: 12px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &.ant-btn-sm {
+      width: $buttonSmallSize;
+      padding: 6px;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+  /* End Shape square */
+
+  /* Button icon */
+  &__has-icon {
+    & > svg {
+      margin-right: 8px;
+    }
+
+    svg + span {
+      margin-left: unset !important;
+    }
+
+    &.ant-btn-xl,
+    &.ant-btn-lg {
+      & > svg {
+        width: inherit;
+        height: inherit;
+      }
+    }
+  }
+  /* End button icon */
+}

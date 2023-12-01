@@ -1,0 +1,7 @@
+{
+  "nodeEnv": "production",
+  "apiUrl": "https://api.finance.pascal.studio",
+  "cryptoAesKey": "58re97235ddda2fe03ec434c0a911182",
+  "webSocketUrl": "ws://api-dev.finance.pascal.studio",
+  "wsPort": "9000"
+}

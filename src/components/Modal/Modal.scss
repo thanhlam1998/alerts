@@ -1,0 +1,82 @@
+.bri-modal {
+
+  .ant-modal {
+    &-content {
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 0px;
+      padding-bottom: 0px;
+    }
+
+    &-header {
+      border-bottom: none;
+      padding: 24px;
+      padding-bottom: 12px;
+      margin-bottom: unset;
+    }
+
+    &-body {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    &-footer {
+      padding: 8px;
+      border-top: 1px solid var(--gray-200);
+      margin-top: 0;
+
+      &-content {
+        &__inline {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          .ant-modal-footer-error {
+            margin-bottom: 0;
+          }
+        }
+
+        .ant-modal-footer-buttons {
+          display: flex;
+          flex-direction: row;
+
+          .console-button {
+            margin-left: 16px !important;
+          }
+        }
+      }
+
+      &-error {
+        font-family: Nunito Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: var(--red-400);
+        margin-bottom: 24px;
+        margin-right: 16px;
+      }
+    }
+
+    &-title {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+      color: var(--gray-800);
+    }
+
+    &-close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 24px;
+      right: 20px;
+      &-x {
+        width: 16px;
+        height: 16px;
+        font-size: inherit;
+      }
+    }
+  }
+}

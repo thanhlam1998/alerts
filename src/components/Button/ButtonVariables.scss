@@ -1,0 +1,255 @@
+/* Common */
+$buttonFontFamily: "Nunito Sans";
+
+/* Size */
+$buttonSmallSize: 24px;
+$buttonDefaultSize: 32px;
+$buttonLargeSize: 40px;
+$buttonExtraLargeSize: 48px;
+
+/* Border radius */
+$buttonSmallRadius: 4px;
+$buttonDefaultRadius: 8px;
+$buttonLargeRadius: 12px;
+$buttonExtraLargeRadius: 16px;
+
+/* Font size */
+$buttonSmallFontSize: 12px;
+$buttonFontSize: 14px;
+$buttonLargeFontSize: 16px;
+
+/* Line height */
+$buttonSmallLineHeight: 16px;
+$buttonLineHeight: 20px;
+$buttonLargeLineHeight: 24px;
+
+/* Font weight */
+$buttonSmallFontWeight: 400;
+$buttonFontWeight: 600;
+
+/* Padding */
+$buttonPadding: 16px;
+$buttonSmallPadding: 8px;
+
+/* ------------------ */
+/*          Colors          */
+/* ----------------- */
+/*   Standard color  */
+$buttonPrimaryBg: var(--blue-500);
+$buttonPrimaryBorderColor: var(--blue-500);
+$buttonPrimaryTextColor: #fff;
+
+$buttonPrimaryHoverBg: var(--blue-600);
+$buttonPrimaryHoverBorderColor: var(--blue-600);
+$buttonPrimaryHoverTextColor: #fff;
+
+$buttonPrimaryDisabledBg: var(--gray-100);
+$buttonPrimaryDisabledBorderColor: var(--gray-100);
+$buttonPrimaryDisabledTextColor: var(--gray-400);
+
+$buttonDefaultBg: var(--gray-100);
+$buttonDefaultBorderColor: var(--gray-100);
+$buttonDefaultTextColor: var(--gray-800);
+
+$buttonDefaultHoverBg: var(--gray-200);
+$buttonDefaultHoverBorderColor: var(--gray-200);
+$buttonDefaultHoverTextColor: var(--gray-800);
+
+$buttonDefaultDisabledBg: var(--gray-100);
+$buttonDefaultDisabledBorderColor: var(--gray-100);
+$buttonDefaultDisabledTextColor: var(--gray-400);
+
+$buttonDashedBg: var(--gray-100);
+$buttonDashedBorderColor: var(--gray-300);
+$buttonDashedTextColor: var(--gray-800);
+
+$buttonDashedHoverBg: var(--blue-50);
+$buttonDashedHoverBorderColor: var(--blue-600);
+$buttonDashedHoverTextColor: var(--blue-600);
+
+$buttonDashedDisableBg: var(--gray-100);
+$buttonDashedDisableBorderColor: var(--gray-400);
+$buttonDashedDisableTextColor: var(--gray-400);
+
+$buttonTextBg: transparent;
+$buttonTextBorderColor: transparent;
+$buttonTextTextColor: var(--gray-800);
+
+$buttonTextHoverBg: var(--blue-50);
+$buttonTextHoverBorderColor: var(--blue-50);
+$buttonTextHoverTextColor: var(--blue-600);
+
+$buttonTextDisabledBg: transparent;
+$buttonTextDisabledBorderColor: transparent;
+$buttonTextDisabledTextColor: var(--gray-400);
+
+$buttonLinkBg: transparent;
+$buttonLinkBorderColor: transparent;
+$buttonLinkTextColor: var(--blue-500);
+
+$buttonLinkHoverBg: transparent;
+$buttonLinkHoverBorderColor: transparent;
+$buttonLinkHoverTextColor: var(--blue-600);
+
+$buttonLinkDisabledBg: transparent;
+$buttonLinkDisabledBorderColor: transparent;
+$buttonLinkDisabledTextColor: var(--gray-400);
+
+/* Red color */
+/* Primary type */
+$buttonRedPrimaryBg: var(--red-400);
+$buttonRedPrimaryBorderColor: var(--red-400);
+$buttonRedPrimaryTextColor: var(--gray-50);
+
+$buttonRedPrimaryHoverBg: var(--red-500);
+$buttonRedPrimaryHoverBorderColor: var(--red-500);
+$buttonRedPrimaryHoverTextColor: #fff;
+
+$buttonRedPrimaryDisabledBg: var(--gray-100);
+$buttonRedPrimaryDisabledBorderColor: var(--gray-100);
+$buttonRedPrimaryDisabledTextColor: var(--gray-300);
+
+/* Default type */
+$buttonRedDefaultBg: var(--gray-100);
+$buttonRedDefaultBorderColor: var(--gray-100);
+$buttonRedDefaultTextColor: var(--red-500);
+
+$buttonRedDefaultHoverBg: var(--gray-200);
+$buttonRedDefaultHoverBorderColor: var(--gray-200);
+$buttonRedDefaultHoverTextColor: var(--red-500);
+
+$buttonRedDefaultDisabledBg: var(--gray-100);
+$buttonRedDefaultDisabledBorderColor: var(--gray-100);
+$buttonRedDefaultDisabledTextColor: var(--gray-300);
+
+/* Dashed type */
+$buttonRedDashedBg: var(--gray-100);
+$buttonRedDashedBorderColor: var(--gray-300);
+$buttonRedDashedTextColor: var(--red-500);
+
+$buttonRedDashedHoverBg: var(--red-50);
+$buttonRedDashedHoverBorderColor: var(--red-500);
+$buttonRedDashedHoverTextColor: var(--red-500);
+
+$buttonRedDashedDisableBg: var(--gray-100);
+$buttonRedDashedDisableBorderColor: var(--gray-300);
+$buttonRedDashedDisableTextColor: var(--gray-300);
+
+/* Text type */
+$buttonRedTextBg: transparent;
+$buttonRedTextBorderColor: transparent;
+$buttonRedTextTextColor: var(--red-500);
+
+$buttonRedTextHoverBg: var(--red-50);
+$buttonRedTextHoverBorderColor: var(--red-50);
+$buttonRedTextHoverTextColor: var(--red-500);
+
+$buttonRedTextDisabledBg: transparent;
+$buttonRedTextDisabledBorderColor: transparent;
+$buttonRedTextDisabledTextColor: var(--gray-300);
+
+/* Link type */
+$buttonRedLinkBg: transparent;
+$buttonRedLinkBorderColor: transparent;
+$buttonRedLinkTextColor: var(--red-400);
+
+$buttonRedLinkHoverBg: transparent;
+$buttonRedLinkHoverBorderColor: transparent;
+$buttonRedLinkHoverTextColor: var(--red-500);
+
+$buttonRedLinkDisabledBg: transparent;
+$buttonRedLinkDisabledBorderColor: transparent;
+$buttonRedLinkDisabledTextColor: var(--gray-300);
+
+/* Green color */
+/* Primary type */
+$buttonGreenPrimaryBg: var(--green-400);
+$buttonGreenPrimaryBorderColor: var(--green-400);
+$buttonGreenPrimaryTextColor: var(--gray-50);
+
+$buttonGreenPrimaryHoverBg: var(--green-500);
+$buttonGreenPrimaryHoverBorderColor: var(--green-500);
+$buttonGreenPrimaryHoverTextColor: #fff;
+
+$buttonGreenPrimaryDisabledBg: var(--gray-100);
+$buttonGreenPrimaryDisabledBorderColor: var(--gray-100);
+$buttonGreenPrimaryDisabledTextColor: var(--gray-300);
+
+/* Default type */
+$buttonGreenDefaultBg: var(--gray-100);
+$buttonGreenDefaultBorderColor: var(--gray-100);
+$buttonGreenDefaultTextColor: var(--gray-800);
+
+$buttonGreenDefaultHoverBg: var(--gray-200);
+$buttonGreenDefaultHoverBorderColor: var(--gray-200);
+$buttonGreenDefaultHoverTextColor: var(--gray-800);
+
+$buttonGreenDefaultDisabledBg: var(--gray-100);
+$buttonGreenDefaultDisabledBorderColor: var(--gray-100);
+$buttonGreenDefaultDisabledTextColor: var(--gray-300);
+
+/* Dashed type */
+$buttonGreenDashedBg: var(--gray-100);
+$buttonGreenDashedBorderColor: var(--gray-300);
+$buttonGreenDashedTextColor: var(--gray-800);
+
+$buttonGreenDashedHoverBg: var(--green-50);
+$buttonGreenDashedHoverBorderColor: var(--green-500);
+$buttonGreenDashedHoverTextColor: var(--green-500);
+
+$buttonGreenDashedDisableBg: var(--gray-100);
+$buttonGreenDashedDisableBorderColor: var(--gray-300);
+$buttonGreenDashedDisableTextColor: var(--gray-300);
+
+/* Text type */
+$buttonGreenTextBg: transparent;
+$buttonGreenTextBorderColor: transparent;
+$buttonGreenTextTextColor: var(--gray-800);
+
+$buttonGreenTextHoverBg: var(--green-50);
+$buttonGreenTextHoverBorderColor: var(--green-50);
+$buttonGreenTextHoverTextColor: var(--green-500);
+
+$buttonGreenTextDisabledBg: transparent;
+$buttonGreenTextDisabledBorderColor: transparent;
+$buttonGreenTextDisabledTextColor: var(--gray-300);
+
+/* Link type */
+$buttonGreenLinkBg: transparent;
+$buttonGreenLinkBorderColor: transparent;
+$buttonGreenLinkTextColor: var(--green-500);
+
+$buttonGreenLinkHoverBg: transparent;
+$buttonGreenLinkHoverBorderColor: transparent;
+$buttonGreenLinkHoverTextColor: var(--green-500);
+
+$buttonGreenLinkDisabledBg: transparent;
+$buttonGreenLinkDisabledBorderColor: transparent;
+$buttonGreenLinkDisabledTextColor: var(--gray-300);
+
+/* Source buttons */
+/* Default */
+$sourceButtonDefaultBg: var(--gray-100);
+$sourceButtonDefaultBorderColor: var(--gray-100);
+$sourceButtonDefaultColor: var(--blue-500);
+
+$sourceButtonDefaultHoverBg: var(--blue-100);
+$sourceButtonDefaultHoverBorderColor: var(--blue-100);
+$sourceButtonDefaultHoverColor: var(--blue-500);
+
+$sourceButtonDefaultDisabledBg: var(--gray-100);
+$sourceButtonDefaultDisabledBorderColor: var(--gray-100);
+$sourceButtonDefaultDisabledColor: var(--gray-300);
+
+/* Outline */
+$sourceButtonOutlineBg: #fff;
+$sourceButtonOutlineBorderColor: var(--gray-200);
+$sourceButtonOutlineColor: var(--gray-800);
+
+$sourceButtonOutlineHoverBg: #fff;
+$sourceButtonOutlineHoverBorderColor: var(--blue-200);
+$sourceButtonOutlineHoverColor: var(--gray-800);
+
+$sourceButtonOutlineDisabledBg: var(--gray-100);
+$sourceButtonOutlineDisabledBorderColor: var(--gray-100);
+$sourceButtonOutlineDisabledColor: var(--gray-300);
