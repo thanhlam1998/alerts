@@ -4,6 +4,10 @@ const initialState: any = {
   notification: {
     message: "",
   },
+  currentActiveLeftMenu: {
+    openKeys: [],
+    selectedKeys: [],
+  },
   currentLanguage: "en",
 };
 
@@ -20,10 +24,12 @@ export const appSlice = createSlice({
     changeLanguage: (state, action) => {
       state.currentLanguage = action.payload;
     },
+    setActiveLeftMenu: (state, action) => {
+      state.currentActiveLeftMenu = action.payload;
+    },
   },
 });
 
-export const { hideNotification, showNotification, changeLanguage } =
-  appSlice.actions;
+export const { hideNotification, showNotification, changeLanguage, setActiveLeftMenu } = appSlice.actions;
 
 export default appSlice.reducer;

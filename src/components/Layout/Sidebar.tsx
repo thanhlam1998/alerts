@@ -1,36 +1,34 @@
-import { Avatar, Button, Divider, Layout, Menu } from "antd";
 import BriFav from "components/svgs/BriFav";
 import BriLogo from "components/svgs/BriLogo";
-import React, { memo, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
-import { LEFT_MENU_ITEMS, LEFT_MENU_KEY, USER_ROLES } from "scripts/constants";
-import { getRedux, getShortUserName } from "scripts/helpers";
-import "./Layout.scss";
 import Chevron from "components/svgs/Chevron";
+import { Avatar, Button, Divider, Layout, Menu } from "antd";
+import { getActiveLeftMenuFromUrl, getRedux, getShortUserName } from "scripts/helpers";
+import { LEFT_MENU_ITEMS, LEFT_MENU_KEY } from "scripts/constants";
+import { Link } from "react-router-dom";
+import { memo, useEffect, useState } from "react";
+import { setActiveLeftMenu } from "store/reducers/app";
+import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { SlGraph } from "react-icons/sl";
+import "./Layout.scss";
 
-const MenuCpn = ({ toggleSidebar, leftMenuActive, setLeftMenuActive, collapse }: any) => {
+const MenuCpn = ({ toggleSidebar, activeLeftMenu, collapse }: any) => {
   const { t } = useTranslation();
   const state: any = {};
   const currentUser = getRedux(`auth.currentUser`, {});
-  const currentUserRole = getRedux(`auth.currentAuth.userRole`, "ORG_ADMIN");
   const organizationName = currentUser?.organizationName || currentUser?.organization || "";
+  const dispatch = useDispatch();
 
+  const [active, setActive] = useState({} as any);
   const dashboardLink = `/${LEFT_MENU_KEY.DASHBOARD}/cases`;
 
-  let { pathname } = useLocation();
-
   useEffect(() => {
-    if (pathname?.charAt(0) !== "/") {
-      pathname = "/" + pathname;
+    if (!collapse) {
+      setActive(activeLeftMenu);
+    } else {
+      setActive({ ...activeLeftMenu, openKeys: [] });
     }
-    const pageName = pathname?.split("/")?.[1] ?? ``;
-
-    const pageActive = LEFT_MENU_ITEMS(t).find((it: any) => it?.key?.toLowerCase() === pageName?.toLowerCase());
-
-    setLeftMenuActive(pageActive?.key);
-  }, [pathname]);
+  }, [activeLeftMenu]);
 
   return (
     <>
@@ -52,10 +50,14 @@ const MenuCpn = ({ toggleSidebar, leftMenuActive, setLeftMenuActive, collapse }:
             )}
           </Link>
         )}
-        <Link to={dashboardLink}>{collapse ? <BriFav /> : <BriLogo />}</Link>
+        <Link to={dashboardLink}>{collapse ? <SlGraph className="w-6 h-6" /> : <SlGraph className="w-6 h-6" />}</Link>
       </div>
       <div className="content">
-        <Menu mode="inline" selectedKeys={[leftMenuActive]}>
+        <Menu
+          mode="inline"
+          selectedKeys={active?.selectedKeys}
+          openKeys={active?.openKeys}
+          onOpenChange={(openKeys: any) => setActive({ ...active, openKeys })}>
           {LEFT_MENU_ITEMS(t).map((menuItem) => {
             return menuItem.subs.length > 0 ? (
               <Menu.SubMenu key={menuItem.key} icon={menuItem.icon} title={menuItem.title}>
@@ -64,12 +66,12 @@ const MenuCpn = ({ toggleSidebar, leftMenuActive, setLeftMenuActive, collapse }:
                     key={item?.key}
                     style={{ paddingLeft: "16px" }}
                     onClick={() => {
-                      // dispatch(
-                      //   setActiveLeftMenu({
-                      //     openKeys: [menuItem?.key],
-                      //     selectedKeys: [menuItem?.key, item?.key],
-                      //   })
-                      // );
+                      dispatch(
+                        setActiveLeftMenu({
+                          openKeys: [menuItem?.key],
+                          selectedKeys: [menuItem?.key, item?.key],
+                        })
+                      );
                     }}>
                     <Link
                       to={{
@@ -85,7 +87,14 @@ const MenuCpn = ({ toggleSidebar, leftMenuActive, setLeftMenuActive, collapse }:
                 key={menuItem?.key}
                 icon={menuItem.icon}
                 style={{ paddingLeft: "12px" }}
-                onClick={() => setLeftMenuActive(menuItem?.key)}>
+                onClick={(menuItem: any) => {
+                  dispatch(
+                    setActiveLeftMenu({
+                      openKeys: [],
+                      selectedKeys: [menuItem?.key],
+                    })
+                  );
+                }}>
                 <Link to={{ pathname: `${menuItem?.link}` }}>{menuItem?.title}</Link>
               </Menu.Item>
             );
@@ -133,13 +142,15 @@ const MenuCpn = ({ toggleSidebar, leftMenuActive, setLeftMenuActive, collapse }:
 
 const Sidebar = ({ currentActiveLeftMenu = {} }: any) => {
   const [collapse, setCollapse] = useState(true);
-  const location = useLocation();
   const dispatch = useDispatch();
-  const [leftMenuActive, setLeftMenuActive] = useState({});
 
   const toggleSidebar = () => {
     setCollapse((prev) => !prev);
   };
+
+  useEffect(() => {
+    dispatch(setActiveLeftMenu(getActiveLeftMenuFromUrl(location?.pathname)));
+  }, [location?.pathname]);
 
   return (
     <>
@@ -152,12 +163,7 @@ const Sidebar = ({ currentActiveLeftMenu = {} }: any) => {
           overflow: "auto",
           height: "100vh",
         }}>
-        <MenuCpn
-          toggleSidebar={toggleSidebar}
-          activeLeftMenu={currentActiveLeftMenu}
-          collapse={collapse}
-          {...{ leftMenuActive, setLeftMenuActive }}
-        />
+        <MenuCpn toggleSidebar={toggleSidebar} activeLeftMenu={currentActiveLeftMenu} collapse={collapse} />
       </Layout.Sider>
     </>
   );

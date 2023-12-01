@@ -1,11 +1,11 @@
 import axios, { AxiosRequestConfig, Method } from "axios";
-import { get, includes, isEmpty } from "lodash";
-import { toast } from "react-toastify";
-import { HTTP_STATUS_CODES } from "scripts/constants";
-import variables from "scripts/variables";
-import store from "store";
-import { logout, updateAuth } from "store/reducers/auth";
 import i18next from "translations";
+import store from "store";
+import variables from "scripts/variables";
+import { get, includes, isEmpty } from "lodash";
+import { HTTP_STATUS_CODES } from "scripts/constants";
+import { logout, updateAuth } from "store/reducers/auth";
+import { toast } from "react-toastify";
 
 let refreshTokenPromise: any;
 

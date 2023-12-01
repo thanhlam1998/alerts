@@ -116,6 +116,7 @@ export interface SelectProps {
   locale?: any;
   allowClear?: boolean;
   onClear?: (va: any) => void;
+  maxTagCount?: number | "responsive"
 }
 const Select = ({
   className = "",

@@ -8,13 +8,13 @@ import {
 } from "scripts/constants";
 import baseApi from "./baseApi";
 
-export type SortableAlertQueueItemColumns = 
-    "customerPriority" |
-    "aggregatedRiskScore" |
-    "totalOpenAlerts" |
-    "totalClosedAlerts" |
-    "totalTransactionAmount" |
-    "lastAlertDateTime";
+export type SortableAlertQueueItemColumns =
+  | "customerPriority"
+  | "aggregatedRiskScore"
+  | "totalOpenAlerts"
+  | "totalClosedAlerts"
+  | "totalTransactionAmount"
+  | "lastAlertDateTime";
 export interface IGetAlertsQueueParams {
   paging: IPaging;
   searchValues?: {
@@ -43,11 +43,7 @@ export interface IGetOpenAlerts {
 }
 
 export const getOpenAlerts = (alertCIFNumber: string, data: IGetOpenAlerts) => {
-  return baseApi(
-    `${API_SERVICES.ALERTS}/${alertCIFNumber}/open-alerts`,
-    HTTP_METHODS.POST,
-    data
-  );
+  return baseApi(`${API_SERVICES.ALERTS}/${alertCIFNumber}/open-alerts`, HTTP_METHODS.POST, data);
 };
 
 export interface IGetClosedAlerts {
@@ -59,15 +55,8 @@ export interface IGetClosedAlerts {
   };
   sort?: any;
 }
-export const getClosedAlerts = (
-  alertCIFNumber: string,
-  data: IGetClosedAlerts
-) => {
-  return baseApi(
-    `${API_SERVICES.ALERTS}/${alertCIFNumber}/closed-alerts`,
-    HTTP_METHODS.POST,
-    data
-  );
+export const getClosedAlerts = (alertCIFNumber: string, data: IGetClosedAlerts) => {
+  return baseApi(`${API_SERVICES.ALERTS}/${alertCIFNumber}/closed-alerts`, HTTP_METHODS.POST, data);
 };
 
 export const getSummaryOfTransactions = (
@@ -82,18 +71,15 @@ export const getSummaryOfTransactions = (
     calculationType: AlertTransactionSummaryCalculationTypeEnum;
   }
 ) => {
-  return baseApi(
-    `${API_SERVICES.ALERTS}/${alertCIFNumber}/transaction-summary`,
-    HTTP_METHODS.POST,
-    { timeRange, breakdown, calculationType }
-  );
+  return baseApi(`${API_SERVICES.ALERTS}/${alertCIFNumber}/transaction-summary`, HTTP_METHODS.POST, {
+    timeRange,
+    breakdown,
+    calculationType,
+  });
 };
 
 export const getNetworkConnectionGraph = (alertCIFNumber: string) => {
-  return baseApi(
-    `${API_SERVICES.ALERTS}/${alertCIFNumber}/network-connection-graph`,
-    HTTP_METHODS.GET
-  );
+  return baseApi(`${API_SERVICES.ALERTS}/${alertCIFNumber}/network-connection-graph`, HTTP_METHODS.GET);
 };
 
 export const closeAlerts = (alertIds: string[]) => {
@@ -118,4 +104,8 @@ export const assignAlertToCase = ({ alertIds, caseId }: IAssignAlertToCase) => {
     alertIds,
     caseId,
   });
+};
+
+export const getAlertQueue = () => {
+  return baseApi(`${API_SERVICES.ALERTS}/queue`, HTTP_METHODS.GET);
 };

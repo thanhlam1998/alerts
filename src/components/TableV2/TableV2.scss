@@ -1,0 +1,43 @@
+.bri-table {
+  .ant-table-thead > tr > th,
+  .ant-table-thead > tr > td {
+    background-color: var(--blue-50);
+    padding: 12px 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .table-bri-row .ant-table-cell {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 12px 16px;
+    box-shadow: 0px -1px 0px 0px #e5e7eb inset;
+    border-bottom: unset;
+  }
+
+  .ant-table-column-sorter-up.active {
+    color: #6085ff;
+  }
+
+  .ant-table-column-sorter-down.active {
+    color: #6085ff;
+  }
+
+  .ant-table-thead > tr > th::before {
+    background-color: var(--blue-200) !important;
+    width: 1px;
+  }
+
+  &.no-radius {
+    .ant-table,
+    .ant-table th {
+      border-radius: unset !important;
+      border-start-start-radius: unset !important;
+      border-start-end-radius: unset !important;
+    }
+  }
+}

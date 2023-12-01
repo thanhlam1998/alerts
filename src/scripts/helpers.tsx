@@ -4,22 +4,9 @@ import { ITimeRangeValue } from "components/RangePicker/RangePicker";
 import dayjs from "dayjs";
 import { ICaseStatus } from "interface/case";
 import { IEdge, IVertex } from "interfaces/alertsQueue";
-import {
-  CaseDetailActionEnum,
-  CaseDetailActionPrivilegeMap,
-} from "interfaces/case";
+import { CaseDetailActionEnum, CaseDetailActionPrivilegeMap } from "interfaces/case";
 import { ISortColumn } from "interfaces/common";
-import {
-  filter,
-  get,
-  isEmpty,
-  isNaN,
-  isNull,
-  isNumber,
-  isUndefined,
-  random,
-  range,
-} from "lodash";
+import { filter, get, isEmpty, isNaN, isNull, isNumber, isUndefined, random, range } from "lodash";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -37,6 +24,7 @@ import {
   GRAPH_NODE_ICON_SIZES,
   GRAPH_NODE_SIZES,
   ICONS_URL,
+  LEFT_MENU_KEY,
   LIKELI_HOOD_ESTIMATIONS,
   NODE_VIEW_OPTIONS,
   NUMBER_DECIMAL_DIGITS,
@@ -58,8 +46,7 @@ export const isJson = (data: any) => {
 
 export const getRedux = (path: string, defaultValue: any) => {
   const getValueRedux = (path: string) => (object: any) => get(object, path);
-  const selectValueRedux = (path: string) =>
-    createSelector(getValueRedux(path), (data) => data);
+  const selectValueRedux = (path: string) => createSelector(getValueRedux(path), (data) => data);
   const getSelector = (path: string) => useSelector(selectValueRedux(path));
   return getSelector(path) || defaultValue;
 };
@@ -69,13 +56,10 @@ export const formatNumberWithCommas = (number: any) => {
 };
 
 export const addKeyToArr = (arr: any) => {
-  return !isEmpty(arr)
-    ? arr?.map((item: any, index: number) => ({ ...item, key: index, index }))
-    : [];
+  return !isEmpty(arr) ? arr?.map((item: any, index: number) => ({ ...item, key: index, index })) : [];
 };
 
-export const trimSpaces = (str?: string) =>
-  str?.replace(/\s+/g, " ").replace(/^\s+|\s+$/, "");
+export const trimSpaces = (str?: string) => str?.replace(/\s+/g, " ").replace(/^\s+|\s+$/, "");
 
 export const getBase64 = (img: File, callback: (url: string) => void) => {
   const reader = new FileReader();
@@ -104,15 +88,10 @@ export const checkFileCondition = (file: RcFile) => {
   return isLt2M;
 };
 
-export const formatLastUpdatedTime = (time?: any) =>
-  time ? moment.unix(time).fromNow() : DEFAULT_VALUES?.noData;
+export const formatLastUpdatedTime = (time?: any) => (time ? moment.unix(time).fromNow() : DEFAULT_VALUES?.noData);
 
-export const getShortUserName = (
-  firstName: string = "",
-  lastName: string = ""
-) =>
-  (firstName || "")?.charAt(0)?.toUpperCase() +
-  (lastName || "")?.charAt(0)?.toUpperCase();
+export const getShortUserName = (firstName: string = "", lastName: string = "") =>
+  (firstName || "")?.charAt(0)?.toUpperCase() + (lastName || "")?.charAt(0)?.toUpperCase();
 
 export const getTableSort = (sort: any) => {
   switch (sort) {
@@ -125,10 +104,7 @@ export const getTableSort = (sort: any) => {
   }
 };
 
-export const getTableColumnSortOrder = (
-  sortBy: ISortColumn<any>[],
-  fieldKey: string
-) => {
+export const getTableColumnSortOrder = (sortBy: ISortColumn<any>[], fieldKey: string) => {
   const existed = sortBy.find((item) => item.fieldKey === fieldKey);
   if (!existed) {
     return undefined;
@@ -137,19 +113,13 @@ export const getTableColumnSortOrder = (
   return getTableSort(existed.sortOrder);
 };
 
-export const mapSortColumnParams = (
-  newSortList: any,
-  oldSortList: ISortColumn<any>[]
-): ISortColumn<any>[] => {
+export const mapSortColumnParams = (newSortList: any, oldSortList: ISortColumn<any>[]): ISortColumn<any>[] => {
   let sortParams: any[] = [...oldSortList];
   newSortList?.forEach((sort: any) => {
-    const existedIndex = sortParams.findIndex(
-      (item) => item.fieldKey === sort.field
-    );
+    const existedIndex = sortParams.findIndex((item) => item.fieldKey === sort.field);
     if (existedIndex > -1) {
       if (sort?.order) {
-        sortParams[existedIndex].sortOrder =
-          sort?.order === "ascend" ? 1 : sort?.order === "descend" ? 0 : null;
+        sortParams[existedIndex].sortOrder = sort?.order === "ascend" ? 1 : sort?.order === "descend" ? 0 : null;
       } else {
         // Remove existing sort item at index
         sortParams.splice(existedIndex, 1);
@@ -157,23 +127,18 @@ export const mapSortColumnParams = (
     } else {
       sortParams.push({
         fieldKey: sort.field,
-        sortOrder:
-          sort?.order === "ascend" ? 1 : sort?.order === "descend" ? 0 : null,
+        sortOrder: sort?.order === "ascend" ? 1 : sort?.order === "descend" ? 0 : null,
       });
     }
   });
 
   const sorterFields = newSortList.map((item: any) => item.field);
-  sortParams = sortParams.filter((item) =>
-    sorterFields.includes(item.fieldKey)
-  );
+  sortParams = sortParams.filter((item) => sorterFields.includes(item.fieldKey));
 
   return sortParams;
 };
 
-export const getAlertPriorityColor = (
-  status: ALERT_PRIORITIES | CASE_PRIORITIES
-) => {
+export const getAlertPriorityColor = (status: ALERT_PRIORITIES | CASE_PRIORITIES) => {
   switch (status) {
     case ALERT_PRIORITIES.HIGH:
     case CASE_PRIORITIES.HIGH:
@@ -210,20 +175,13 @@ export const getCaseStatusColor = (status: ICaseStatus) => {
   }
 };
 
-type ConvertToDisplayType =
-  | "number"
-  | "percent"
-  | "lastUpdatedTime"
-  | "decimalNumber"
-  | "money";
+type ConvertToDisplayType = "number" | "percent" | "lastUpdatedTime" | "decimalNumber" | "money";
 
 export const formatPercent = (percentValue: number) => {
   percentValue = Math.abs(percentValue);
   percentValue = Number.isInteger(percentValue)
     ? percentValue
-    : parseFloat(
-        percentValue.toFixed(+percentValue > 100 ? 0 : NUMBER_DECIMAL_DIGITS)
-      );
+    : parseFloat(percentValue.toFixed(+percentValue > 100 ? 0 : NUMBER_DECIMAL_DIGITS));
 
   return `${formatNumberWithCommas(percentValue)}%`;
 };
@@ -240,16 +198,10 @@ export const formatMoney = (number: any, currency = DEFAULT_CURRENCY) => {
   });
 };
 
-export const convertToDisplay = (
-  value: any,
-  type = "number" as ConvertToDisplayType,
-  currency = DEFAULT_CURRENCY
-) => {
+export const convertToDisplay = (value: any, type = "number" as ConvertToDisplayType, currency = DEFAULT_CURRENCY) => {
   switch (type) {
     case "lastUpdatedTime": {
-      return !isEmpty(value) && !isNaN(value)
-        ? moment.unix(value).fromNow()
-        : DEFAULT_VALUES.noData;
+      return !isEmpty(value) && !isNaN(value) ? moment.unix(value).fromNow() : DEFAULT_VALUES.noData;
     }
     case "number":
     case "decimalNumber":
@@ -257,17 +209,13 @@ export const convertToDisplay = (
       if (isValueInValid(value)) return DEFAULT_VALUES.noData;
       if (type === "number") return formatNumberWithCommas(+value);
       if (type === "decimalNumber") {
-        return formatNumberWithCommas(
-          Number(value).toFixed(NUMBER_DECIMAL_DIGITS)
-        );
+        return formatNumberWithCommas(Number(value).toFixed(NUMBER_DECIMAL_DIGITS));
       }
       if (type === "percent") return formatPercent(+value);
       break;
     }
     case "money": {
-      return isNumber(value)
-        ? `${currency} ${formatMoney(value, currency)}`
-        : DEFAULT_VALUES.noData;
+      return isNumber(value) ? `${currency} ${formatMoney(value, currency)}` : DEFAULT_VALUES.noData;
     }
     default:
       return value;
@@ -315,9 +263,7 @@ export const sorterMoney = (money: number) => {
 };
 
 export const getLikelihoodEstimationName = (code?: number) => {
-  const estimate = LIKELI_HOOD_ESTIMATIONS().find(
-    (it: any) => it?.value === code
-  );
+  const estimate = LIKELI_HOOD_ESTIMATIONS().find((it: any) => it?.value === code);
   return estimate?.label ?? "NaN";
 };
 
@@ -549,8 +495,7 @@ export const createGraph = ({
   if (typeof window !== "undefined") {
     window.onresize = () => {
       if (!graph || graph.get("destroyed")) return;
-      if (!container || !container.clientWidth || !container.clientHeight)
-        return;
+      if (!container || !container.clientWidth || !container.clientHeight) return;
       graph.changeSize(container.clientWidth, container.clientHeight);
     };
   }
@@ -713,14 +658,11 @@ export const renderRiskScore = (riskScore: any) => {
   return <span>{riskScore?.toFixed(3)}</span>;
 };
 
-export const containsAll = (needles: any, haystack: any) =>
-  needles.every(Set.prototype.has, new Set(haystack));
+export const containsAll = (needles: any, haystack: any) => needles.every(Set.prototype.has, new Set(haystack));
 
 export const numFormatter = (num: any) => {
   if (num >= 1000000) {
-    return (
-      convertToDisplay((num / 1000000).toFixed(1)).replace(/\.0$/, "") + "M"
-    );
+    return convertToDisplay((num / 1000000).toFixed(1)).replace(/\.0$/, "") + "M";
   }
 
   if (num >= 1000) {
@@ -736,9 +678,7 @@ export const createNode = (node: IVertex, mainNode: boolean = false) => {
   )?.label;
 
   return {
-    label: `${node?.attributes?.name || nodeMappingLabel || node.vType}\n ${
-      node.vId
-    }`,
+    label: `${node?.attributes?.name || nodeMappingLabel || node.vType}\n ${node.vId}`,
     id: (node?.vId ?? "") + (node?.vType ?? ""),
     vId: node?.vId,
     vType: node?.vType,
@@ -787,12 +727,7 @@ export const isTimeRangeValueValid = (val: ITimeRangeValue) => {
     val.to = +val.to;
   }
 
-  return (
-    !isNaN(val?.from) &&
-    !isNaN(val?.to) &&
-    isValidDateTime(val?.from * 1000) &&
-    isValidDateTime(val?.to * 1000)
-  );
+  return !isNaN(val?.from) && !isNaN(val?.to) && isValidDateTime(val?.from * 1000) && isValidDateTime(val?.to * 1000);
 };
 
 const isValidDateTime = (input: any) => {
@@ -808,53 +743,38 @@ export const parseTimeRangeValue = (obj: any) => {
   const newObj = { ...obj };
 
   newObj.from =
-    isEmpty(newObj.from) || !DATE_REGEX.test(newObj.from)
-      ? null
-      : moment.utc(newObj.from, DATE_FORMAT).unix();
+    isEmpty(newObj.from) || !DATE_REGEX.test(newObj.from) ? null : moment.utc(newObj.from, DATE_FORMAT).unix();
 
-  newObj.to =
-    isEmpty(newObj.to) || !DATE_REGEX.test(newObj.to)
-      ? null
-      : moment.utc(newObj.to, DATE_FORMAT).unix();
+  newObj.to = isEmpty(newObj.to) || !DATE_REGEX.test(newObj.to) ? null : moment.utc(newObj.to, DATE_FORMAT).unix();
 
   return newObj;
 };
 
-export const getCaseDetailPrivilegeMap = (
-  role: string,
-  approvalStatus: string
-): CaseDetailActionPrivilegeMap => {
+export const getCaseDetailPrivilegeMap = (role: string, approvalStatus: string): CaseDetailActionPrivilegeMap => {
   let mappedPrivilegeMap: CaseDetailActionPrivilegeMap = {};
   switch (role) {
     case USER_ROLES.MAKER:
       mappedPrivilegeMap = {
         [CaseDetailActionEnum.APPROVE]: false,
         [CaseDetailActionEnum.REJECT]: false,
-        [CaseDetailActionEnum.SUBMIT]:
-          approvalStatus === CASE_APPROVAL_STATUS_ENUM.OPEN,
+        [CaseDetailActionEnum.SUBMIT]: approvalStatus === CASE_APPROVAL_STATUS_ENUM.OPEN,
         [CaseDetailActionEnum.REOPEN]: false,
       };
       break;
     case USER_ROLES.CHECKER:
       mappedPrivilegeMap = {
-        [CaseDetailActionEnum.APPROVE]:
-          approvalStatus === CASE_APPROVAL_STATUS_ENUM.ON_CHECKER,
-        [CaseDetailActionEnum.REJECT]:
-          approvalStatus === CASE_APPROVAL_STATUS_ENUM.ON_CHECKER,
+        [CaseDetailActionEnum.APPROVE]: approvalStatus === CASE_APPROVAL_STATUS_ENUM.ON_CHECKER,
+        [CaseDetailActionEnum.REJECT]: approvalStatus === CASE_APPROVAL_STATUS_ENUM.ON_CHECKER,
         [CaseDetailActionEnum.SUBMIT]: false,
-        [CaseDetailActionEnum.REOPEN]:
-          approvalStatus === CASE_APPROVAL_STATUS_ENUM.CLOSED,
+        [CaseDetailActionEnum.REOPEN]: approvalStatus === CASE_APPROVAL_STATUS_ENUM.CLOSED,
       };
       break;
     case USER_ROLES.SIGNER:
       mappedPrivilegeMap = {
-        [CaseDetailActionEnum.APPROVE]:
-          approvalStatus === CASE_APPROVAL_STATUS_ENUM.ON_SIGNER,
-        [CaseDetailActionEnum.REJECT]:
-          approvalStatus === CASE_APPROVAL_STATUS_ENUM.ON_SIGNER,
+        [CaseDetailActionEnum.APPROVE]: approvalStatus === CASE_APPROVAL_STATUS_ENUM.ON_SIGNER,
+        [CaseDetailActionEnum.REJECT]: approvalStatus === CASE_APPROVAL_STATUS_ENUM.ON_SIGNER,
         [CaseDetailActionEnum.SUBMIT]: false,
-        [CaseDetailActionEnum.REOPEN]:
-          approvalStatus === CASE_APPROVAL_STATUS_ENUM.CLOSED,
+        [CaseDetailActionEnum.REOPEN]: approvalStatus === CASE_APPROVAL_STATUS_ENUM.CLOSED,
       };
       break;
     default:
@@ -876,4 +796,69 @@ export const getCaseDetailPrivilegeMap = (
     [CaseDetailActionEnum.REMOVE_ALERT_FROM_CASE]: isEditable,
     [CaseDetailActionEnum.ADD_ALERT_TO_CASE]: isEditable,
   };
+};
+
+const getActiveAlertsLeftMenu = (url: string) => {
+  let activeData: any = {
+    openKeys: [],
+    selectedKeys: [LEFT_MENU_KEY?.ALERTS],
+  };
+  const path = url?.split("/")?.[2] ?? ``;
+  switch (path) {
+    case `queue`:
+      activeData = {
+        openKeys: [LEFT_MENU_KEY?.ALERTS],
+        selectedKeys: [LEFT_MENU_KEY?.ALERTS, LEFT_MENU_KEY?.ALERTS_QUEUE],
+      };
+      break;
+    case `archived`:
+      activeData = {
+        openKeys: [LEFT_MENU_KEY?.ALERTS],
+        selectedKeys: [LEFT_MENU_KEY?.ALERTS, LEFT_MENU_KEY?.ALERTS_ARCHIVED],
+      };
+      break;
+    default:
+      break;
+  }
+  return activeData;
+};
+
+export const getActiveLeftMenuFromUrl = (url: string) => {
+  // ex: /shipments/carriers
+  if (url?.charAt(0) !== "/") {
+    url = "/" + url;
+  }
+
+  const serviceName = url?.split("/")?.[1] ?? ``;
+  let activeLeftMenuData: any = {};
+  switch (serviceName) {
+    case LEFT_MENU_KEY?.ALERTS:
+      activeLeftMenuData = getActiveAlertsLeftMenu(url);
+      break;
+    default:
+      break;
+  }
+  return activeLeftMenuData;
+};
+
+export const sorterByField = (field: string) => (a: any, b: any) => {
+  const valueA = get(a, field);
+  const valueB = get(b, field);
+  if (valueA instanceof Date) {
+    return moment(valueA).isBefore(moment(get(b, field)));
+  }
+  const type = typeof valueA;
+
+  switch (type) {
+    case "number":
+      return valueA > valueB;
+    case "boolean":
+      return valueA - valueB;
+    case "string":
+    default: {
+      const nameA = valueA?.toLowerCase() || "";
+      const nameB = valueB?.toLowerCase() || "";
+      return nameA?.localeCompare(nameB);
+    }
+  }
 };
